@@ -4,6 +4,6 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://lordrequiem.github.io',
-  base: '/website',
+  base: '/website/',
   integrations: [mdx(), sitemap()],
 });
