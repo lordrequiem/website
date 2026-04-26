@@ -2,7 +2,7 @@ export const podcast = {
   name: 'QG Qualité',
   tagline: 'The voice of QA that matters',
   coverArt: '/website/podcast-cover.jpg',
-  primaryUrl: 'https://...',
+  primaryUrl: 'https://linktr.ee/QGQualite',
   platforms: [
     { name: 'Spotify', url: 'https://open.spotify.com/show/2RXVnPct46dACBJNkEoIQe?si=7f63470c19e84415' },
     { name: 'Apple Podcasts', url: 'https://podcasts.apple.com/fr/podcast/qg-qualit%C3%A9/id1759317786' },
