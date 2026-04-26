@@ -1,0 +1,283 @@
+---
+import 'asciinema-player/dist/bundle/asciinema-player.css';
+import { strings } from '../i18n/strings';
+const en = strings.en.hero;
+const fr = strings.fr.hero;
+---
+
+<section id="hero">
+  <div class="container hero-grid">
+
+    <!-- Col 1: Photo -->
+    <div class="hero-photo-col">
+      <div class="avatar-wrapper">
+        <div class="avatar">
+          <!-- Replace with: <img src={`${import.meta.env.BASE_URL}avatar.jpg`} alt="Romuald L." class="avatar-img" /> -->
+          <span class="avatar-initials">RL</span>
+        </div>
+        <div class="status-dot"></div>
+        <span class="status-label">
+          <span data-lang-en>{en.status}</span>
+          <span data-lang-fr>{fr.status}</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Col 2: Text -->
+    <div class="hero-text-col">
+      <p class="role">
+        <span data-lang-en>{en.role}</span>
+        <span data-lang-fr>{fr.role}</span>
+      </p>
+      <h1 class="headline">
+        <span data-lang-en>{en.headline}</span>
+        <span data-lang-fr>{fr.headline}</span>
+      </h1>
+      <p class="sub-copy">
+        <span data-lang-en>{en.subCopy}</span>
+        <span data-lang-fr>{fr.subCopy}</span>
+      </p>
+      <div class="skill-tags">
+        <span class="tag">Playwright</span>
+        <span class="tag">Cypress</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">GitHub Actions</span>
+        <span class="tag">Page Object Model</span>
+      </div>
+      <div class="hero-ctas">
+        <a href="#work" class="btn btn-primary">
+          <span data-lang-en>{en.cta1}</span>
+          <span data-lang-fr>{fr.cta1}</span>
+        </a>
+        <a href="#contact" class="btn btn-secondary">
+          <span data-lang-en>{en.cta2}</span>
+          <span data-lang-fr>{fr.cta2}</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Col 3: Terminal -->
+    <div class="hero-terminal-col">
+      <div class="terminal-frame">
+        <div class="terminal-bar">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="terminal-title">npx playwright test</span>
+        </div>
+        <div id="terminal-hero"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { create as createPlayer } from 'asciinema-player';
+
+  const hero = document.getElementById('terminal-hero');
+  if (hero) {
+    const castUrl = `${import.meta.env.BASE_URL}demo.cast`;
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        createPlayer(castUrl, hero, {
+          autoPlay: true,
+          loop: true,
+          terminalFontFamily: "'JetBrains Mono', 'Courier New', monospace",
+          fit: 'width',
+        });
+        observer.disconnect();
+      }
+    }, { threshold: 0.1 });
+    observer.observe(hero);
+  }
+</script>
+
+<style>
+  #hero {
+    padding: 4rem 0 5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 180px 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  /* Photo column */
+  .hero-photo-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .avatar-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .avatar-initials {
+    font-size: 2.5rem;
+    color: var(--text-muted);
+  }
+
+  .status-dot {
+    position: absolute;
+    bottom: 2rem;
+    right: 0.5rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--green);
+    border: 2px solid var(--bg);
+  }
+
+  .status-label {
+    font-size: 0.75rem;
+    color: var(--green);
+  }
+
+  /* Text column */
+  .role {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+  }
+
+  .headline {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .sub-copy {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .tag {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: var(--font);
+    font-size: 0.85rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .btn:hover {
+    opacity: 0.85;
+    text-decoration: none;
+  }
+
+  .btn-primary {
+    background: var(--blue);
+    color: #fff;
+  }
+
+  .btn-secondary {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  /* Terminal column */
+  .terminal-frame {
+    background: #010409;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .terminal-bar {
+    background: #161b22;
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .dot.red { background: #f85149; }
+  .dot.yellow { background: #d29922; }
+  .dot.green { background: #3fb950; }
+
+  .terminal-title {
+    flex: 1;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  #terminal-hero {
+    min-height: 240px;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-photo-col {
+      flex-direction: row;
+      gap: 1.5rem;
+      align-items: center;
+    }
+  }
+</style>

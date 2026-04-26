@@ -1,0 +1,117 @@
+---
+import { strings } from '../i18n/strings';
+const en = strings.en.contact;
+const fr = strings.fr.contact;
+---
+
+<section id="contact">
+  <div class="container contact-grid">
+
+    <!-- Left: text + links -->
+    <div class="contact-left">
+      <h2 class="section-heading">
+        <span data-lang-en>{en.heading}</span>
+        <span data-lang-fr>{fr.heading}</span>
+      </h2>
+      <p class="contact-copy" data-lang-en>{en.subCopy}</p>
+      <p class="contact-copy" data-lang-fr>{fr.subCopy}</p>
+
+      <div class="contact-links">
+        <a href="mailto:romualdlenormand@gmail.com" class="contact-btn">
+          <span data-lang-en>{en.email}</span>
+          <span data-lang-fr>{fr.email}</span>
+        </a>
+        <a href="https://linkedin.com/in/" class="contact-btn" target="_blank" rel="noopener">
+          <span data-lang-en>{en.linkedin}</span>
+          <span data-lang-fr>{fr.linkedin}</span>
+        </a>
+        <a href="https://github.com/lordrequiem" class="contact-btn" target="_blank" rel="noopener">
+          <span data-lang-en>{en.github}</span>
+          <span data-lang-fr>{fr.github}</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: TypeScript type block -->
+    <div class="contact-right">
+      <pre class="type-block"><code><span class="kw">type</span> <span class="type-name">Engagement</span> = &#123;
+  <span class="prop">scope</span><span class="punct">:</span> <span class="str">'automation'</span> <span class="punct">|</span> <span class="str">'strategy'</span> <span class="punct">|</span> <span class="str">'api-testing'</span><span class="punct">;</span>
+  <span class="prop">duration</span><span class="punct">:</span> <span class="type-name">string</span><span class="punct">;</span>   <span class="comment">// e.g. "3 months"</span>
+  <span class="prop">handoff</span><span class="punct">:</span> <span class="kw">true</span><span class="punct">;</span>       <span class="comment">// runbook + live demo</span>
+  <span class="prop">flakeRate</span><span class="punct">:</span> <span class="num">0</span><span class="punct">;</span>       <span class="comment">// non-negotiable</span>
+&#125;</code></pre>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .contact-copy {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-top: 1rem;
+    margin-bottom: 1.75rem;
+    max-width: 400px;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 240px;
+  }
+
+  .contact-btn {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .contact-btn:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    text-decoration: none;
+  }
+
+  /* Type block */
+  .type-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.5rem;
+    font-size: 0.8rem;
+    overflow-x: auto;
+  }
+
+  .type-block code {
+    font-family: var(--font);
+  }
+
+  .kw { color: var(--blue); }
+  .type-name { color: var(--yellow); }
+  .prop { color: var(--text); }
+  .str { color: var(--green-bright); }
+  .num { color: var(--yellow); }
+  .punct { color: var(--text-muted); }
+  .comment { color: var(--text-muted); }
+
+  @media (max-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+</style>

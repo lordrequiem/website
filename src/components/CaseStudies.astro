@@ -1,0 +1,144 @@
+---
+import { getCollection } from 'astro:content';
+import { strings } from '../i18n/strings';
+
+const en = strings.en.cases;
+const fr = strings.fr.cases;
+
+const cases = await getCollection('cases');
+cases.sort((a, b) => b.data.year - a.data.year);
+---
+
+<section id="work">
+  <div class="container">
+    <h2 class="section-heading">
+      <span data-lang-en>{en.heading}</span>
+      <span data-lang-fr>{fr.heading}</span>
+    </h2>
+
+    <div class="cases">
+      {cases.map((c) => (
+        <div class="case-card">
+          <div class="case-left">
+            <div class="case-header">
+              <span class="case-client">{c.data.client}</span>
+              <span class="case-year">{c.data.year}</span>
+            </div>
+            <h3 class="case-title">{c.data.title}</h3>
+            <p class="case-excerpt">{c.data.excerpt}</p>
+            <div class="case-tags">
+              {c.data.stack.map((s) => (
+                <span class="tag">{s}</span>
+              ))}
+            </div>
+          </div>
+          <div class="case-right">
+            {c.data.metrics.map((m) => (
+              <div class="metric">
+                <span class="metric-value">{m.value}</span>
+                <span class="metric-label">{m.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<style>
+  .cases {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .case-card {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 2rem;
+    align-items: start;
+  }
+
+  .case-header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .case-client {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .case-year {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .case-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+  }
+
+  .case-excerpt {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    max-width: 600px;
+  }
+
+  .case-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+  }
+
+  .case-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    text-align: right;
+    min-width: 120px;
+  }
+
+  .metric-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--green);
+    line-height: 1;
+  }
+
+  .metric-label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+  }
+
+  @media (max-width: 768px) {
+    .case-card { grid-template-columns: 1fr; }
+    .case-right { text-align: left; flex-direction: row; flex-wrap: wrap; }
+  }
+</style>

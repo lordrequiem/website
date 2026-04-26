@@ -1,0 +1,35 @@
+---
+title: "E2E Suite Rebuild: From 35% Flake to Zero"
+client: "FinTech client"
+year: 2025
+category: "E2E Suite Rebuild"
+stack: ["Playwright", "TypeScript", "GitHub Actions", "Page Object Model"]
+metrics:
+  - value: "0%"
+    label: "Flake rate"
+  - value: "-68%"
+    label: "Run time"
+  - value: "100%"
+    label: "CI adoption"
+excerpt: "A 400-test Cypress suite with a 35% flake rate, skipped by the team and ignored in CI. Rebuilt from the ground up in Playwright with full POM architecture and fixtures."
+---
+
+## The problem
+
+The team had stopped trusting their test suite. 35% of tests failed on any given CI run — not because of bugs, but because of race conditions, shared state, and brittle selectors. The response was to add retries. Three retries per test. The suite took 40 minutes.
+
+When the CI dashboard shows red so often that green becomes surprising, the suite has failed its job.
+
+## The approach
+
+**Phase 1: Audit.** Categorised every failing test: race condition, shared state, broken selector, or legitimate bug. 80% of failures were automation problems, not product bugs.
+
+**Phase 2: Redesign.** Replaced the flat test structure with a proper POM. Created shared fixtures for auth, test data creation, and cleanup. Rewrote selectors to use `getByRole`, `getByLabel`, and `data-testid` attributes.
+
+**Phase 3: Rebuild.** Migrated incrementally — Playwright running in parallel with Cypress, both in CI, until the new suite matched coverage.
+
+**Phase 4: Handoff.** Runbook, live walkthrough, first maintenance PR written by the client team.
+
+## The outcome
+
+Zero flake rate on 450 tests across 6 weeks of production CI runs. Run time dropped from 40 minutes to 13 minutes through parallelisation. The team's first response to a CI failure is now "what broke?" — not "probably flaky, retry it."

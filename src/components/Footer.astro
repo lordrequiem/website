@@ -1,0 +1,32 @@
+---
+import { strings } from '../i18n/strings';
+const en = strings.en.footer;
+const fr = strings.fr.footer;
+---
+
+<footer>
+  <div class="container footer-inner">
+    <span class="copy">© {new Date().getFullYear()} Romuald L.</span>
+    <span class="built">
+      <span data-lang-en>{en.built}</span>
+      <span data-lang-fr>{fr.built}</span>
+    </span>
+  </div>
+</footer>
+
+<style>
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 0;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+</style>

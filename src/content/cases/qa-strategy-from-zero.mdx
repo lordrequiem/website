@@ -1,0 +1,33 @@
+---
+title: "QA Strategy from Zero: Building a Testing Culture"
+client: "SaaS startup"
+year: 2025
+category: "QA Strategy"
+stack: ["Playwright", "TypeScript", "GitHub Actions", "Jira/Xray", "Jenkins"]
+metrics:
+  - value: "4 wks"
+    label: "To first CI gate"
+  - value: "3×"
+    label: "Team trained"
+  - value: "6 mo"
+    label: "Maintained post-handoff"
+excerpt: "A 15-person engineering team with no automated tests and no QA practice. Manual testing before each release, 3-day release cycles. Built the full testing infrastructure and the culture to sustain it."
+---
+
+## The problem
+
+No automated tests. No QA process. A manual testing phase before every release that consumed 3 engineering days and still missed regressions. The team knew they needed automation but didn't know where to start or what "done" looked like.
+
+## The approach
+
+**Week 1–2: Mapping.** Identified the highest-risk flows: authentication, payment, and user data management. Interviewed developers about the bugs they were most afraid of. Built the risk matrix.
+
+**Week 3–4: Foundation.** Scaffolded the Playwright project with POM, fixtures, and GitHub Actions integration. First quality gate: no PR merges without the smoke suite passing. Written into the PR template.
+
+**Week 5–8: Coverage.** Built out the full E2E suite covering the critical paths. Introduced Jira/Xray for test case traceability — every test linked to a requirement.
+
+**Week 9–12: Culture.** Paired with developers during feature work to write tests alongside code, not after. Ran internal sessions on "how to debug a failing test." Established the principle: if CI is red, the team stops shipping until it's green.
+
+## The outcome
+
+The team shipped their first release with full automated coverage in week 4. Six months after handoff, the suite was still maintained and growing — developers were adding tests to new features without being asked. The 3-day manual phase is gone.

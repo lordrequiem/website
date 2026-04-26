@@ -1,0 +1,64 @@
+---
+title: "Flaky Tests Are Not a Playwright Problem"
+date: "2026-03-15"
+readTime: "7 min read"
+excerpt: "Every team I've worked with blames the tool when tests go flaky. The problem is almost never Playwright. Here's what's actually happening."
+lang: "en"
+---
+
+Flaky tests share three root causes across every codebase I've touched.
+
+## Root cause 1: Race conditions against async state
+
+The most common one. Your test clicks a button, then immediately checks the result — but the UI hasn't finished reacting. You add a `waitForTimeout(1000)` and it passes locally. Then it fails in CI because CI is slower.
+
+The fix is not a longer timeout. The fix is `waitForSelector` or a web-first assertion:
+
+```ts
+// Wrong
+await page.click('#submit');
+await page.waitForTimeout(1000);
+await expect(page.locator('.success')).toBeVisible();
+
+// Right
+await page.click('#submit');
+await expect(page.locator('.success')).toBeVisible(); // auto-waits
+```
+
+Playwright's auto-waiting is not magic — it's a polling loop with a configurable timeout. Trust it instead of fighting it.
+
+## Root cause 2: Test data shared between runs
+
+Two tests run in parallel. Both write to the same user. One test modifies state the other test expects to be clean. The order they finish in determines which test passes.
+
+The fix is test isolation at the data level. Create fresh test data per test, tear it down after. Playwright fixtures make this composable:
+
+```ts
+const test = base.extend<{ user: User }>({
+  user: async ({ request }, use) => {
+    const user = await createTestUser(request);
+    await use(user);
+    await deleteTestUser(request, user.id);
+  },
+});
+```
+
+## Root cause 3: Selector brittleness
+
+A test uses a CSS selector tied to DOM structure. A developer changes the layout. The selector silently breaks on a path that has nothing to do with the feature.
+
+The fix is role-based locators:
+
+```ts
+// Brittle
+page.locator('.sidebar > div:nth-child(3) > button')
+
+// Stable
+page.getByRole('button', { name: 'Delete account' })
+```
+
+If the element has no accessible role or label, that's a separate problem worth fixing — not a reason to use a fragile selector.
+
+---
+
+None of these are Playwright problems. They're automation design problems. The tool does exactly what you tell it.

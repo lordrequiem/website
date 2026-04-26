@@ -1,0 +1,42 @@
+---
+import { strings } from '../i18n/strings';
+const en = strings.en.about;
+const fr = strings.fr.about;
+---
+
+<section id="about">
+  <div class="container">
+    <h2 class="section-heading">
+      <span data-lang-en>{en.heading}</span>
+      <span data-lang-fr>{fr.heading}</span>
+    </h2>
+    <p class="about-text" data-lang-en>
+      Lead Quality Engineer working across multiple clients and codebases in a consulting setting.
+      My work spans test automation — Playwright, Cypress, TypeScript — and QA strategy: testing
+      pyramids, quality gates, and handoffs that stick. A good week is one where I shipped reliable
+      automation and caught real bugs before release.
+    </p>
+    <p class="about-text" data-lang-fr>
+      Lead Quality Engineer en consulting, j'interviens sur plusieurs clients et codebases.
+      Mon travail couvre l'automatisation des tests — Playwright, Cypress, TypeScript — et la
+      stratégie QA : pyramides de tests, quality gates, et transmissions qui perdurent. Une bonne
+      semaine, c'est de l'automatisation fiable livrée et de vrais bugs trouvés avant la release.
+    </p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<style>
+  #about {
+    padding: 3rem 0;
+  }
+
+  .about-text {
+    max-width: 680px;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-top: 1rem;
+  }
+</style>

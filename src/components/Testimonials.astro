@@ -1,0 +1,77 @@
+---
+import { strings } from '../i18n/strings';
+const en = strings.en.testimonials;
+const fr = strings.fr.testimonials;
+
+const testimonials = [
+  {
+    role: 'CTO · FinTech client',
+    quote: [
+      "Romuald didn't just rebuild our test suite — he rebuilt our",
+      "team's relationship with CI.",
+    ],
+  },
+  {
+    role: 'Engineering Manager · SaaS startup',
+    quote: [
+      'The handoff doc alone was worth the engagement. Six months later',
+      "the team is still maintaining everything he built.",
+    ],
+  },
+  {
+    role: 'Lead Developer · E-commerce',
+    quote: [
+      'Flake rate went from 35% to zero. We stopped dreading the CI',
+      'dashboard.',
+    ],
+  },
+];
+---
+
+<section id="testimonials">
+  <div class="container">
+    <h2 class="section-heading">
+      <span data-lang-en>{en.heading}</span>
+      <span data-lang-fr>{fr.heading}</span>
+    </h2>
+
+    <div class="testimonials-grid">
+      {testimonials.map((t) => (
+        <div class="testimonial">
+          <p class="comment-role">// {t.role}</p>
+          {t.quote.map((line) => (
+            <p class="comment-line">// "{line}"</p>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<style>
+  .testimonials-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+
+  .testimonial {
+    border-left: 2px solid var(--border);
+    padding-left: 1.25rem;
+  }
+
+  .comment-role {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .comment-line {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+</style>

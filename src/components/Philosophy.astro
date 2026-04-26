@@ -1,0 +1,124 @@
+---
+import { strings } from '../i18n/strings';
+const en = strings.en.philosophy;
+const fr = strings.fr.philosophy;
+---
+
+<section id="philosophy">
+  <div class="container">
+    <h2 class="section-heading">
+      <span data-lang-en>{en.heading}</span>
+      <span data-lang-fr>{fr.heading}</span>
+    </h2>
+
+    <div class="grid">
+      <div class="block overrated">
+        <span class="label">OVERRATED</span>
+        <p data-lang-en>
+          Codeless and low-code test tools. They feel fast until the codebase grows. You end up
+          with 200 unreadable flows you can't refactor, and a team that can't debug them.
+        </p>
+        <p data-lang-fr>
+          Les outils de test sans code et low-code. Ça paraît rapide jusqu'à ce que le codebase
+          grandisse. Résultat : 200 flux illisibles impossibles à refactorer, et une équipe qui
+          ne sait pas les debugger.
+        </p>
+      </div>
+
+      <div class="block underrated">
+        <span class="label">UNDERRATED</span>
+        <p data-lang-en>
+          Observability inside tests. Good logs, traces, screenshots, video artifacts, and network
+          captures. The difference between a 10-minute debug and a 2-hour one. Most teams skip this.
+        </p>
+        <p data-lang-fr>
+          L'observabilité dans les tests. Des logs clairs, des traces, des screenshots, des vidéos,
+          des captures réseau. La différence entre 10 minutes de debug et 2 heures. La plupart des
+          équipes ignorent ça.
+        </p>
+      </div>
+
+      <div class="block never">
+        <span class="label">NEVER</span>
+        <p data-lang-en>
+          Skip or <code>.skip()</code> a flaky test. Retrying a flaky test hides a real signal,
+          teaches the team to distrust the suite, and eventually lets a real bug through disguised
+          as noise.
+        </p>
+        <p data-lang-fr>
+          Passer ou <code>.skip()</code> un test instable. Relancer un test qui flake masque un
+          vrai signal, apprend à l'équipe à ne pas faire confiance à la suite, et finit par laisser
+          passer un vrai bug déguisé en bruit.
+        </p>
+      </div>
+
+      <div class="block always">
+        <span class="label">ALWAYS</span>
+        <p data-lang-en>
+          Every test runs in CI from day one. No local-only tests. No "I'll add it to the pipeline
+          later." If it doesn't run in CI, it doesn't exist.
+        </p>
+        <p data-lang-fr>
+          Chaque test tourne en CI dès le premier jour. Pas de tests en local seulement. Pas de
+          "je l'ajouterai au pipeline plus tard." Si ça ne tourne pas en CI, ça n'existe pas.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .block {
+    border-left: 3px solid;
+    padding: 1.5rem;
+    background: var(--surface);
+    border-radius: 0 6px 6px 0;
+  }
+
+  .block.overrated { border-color: var(--red); }
+  .block.never { border-color: var(--red); }
+  .block.underrated { border-color: var(--green); }
+  .block.always { border-color: var(--green); }
+
+  .label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+
+  .overrated .label,
+  .never .label { color: var(--red); }
+
+  .underrated .label,
+  .always .label { color: var(--green); }
+
+  .block p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  code {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+    font-size: 0.85em;
+    color: var(--yellow);
+  }
+
+  @media (max-width: 768px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>

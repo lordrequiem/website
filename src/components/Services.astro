@@ -1,0 +1,123 @@
+---
+import { strings } from '../i18n/strings';
+const en = strings.en.services;
+const fr = strings.fr.services;
+---
+
+<section id="services">
+  <div class="container">
+    <h2 class="section-heading">
+      <span data-lang-en>{en.heading}</span>
+      <span data-lang-fr>{fr.heading}</span>
+    </h2>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3 class="card-title" data-lang-en>Test Automation</h3>
+        <h3 class="card-title" data-lang-fr>Automatisation des tests</h3>
+        <p class="card-desc" data-lang-en>
+          End-to-end suites in Playwright and Cypress. Page Object Model, fixtures, and
+          data-driven patterns. CI integration from day one — no local-only tests.
+        </p>
+        <p class="card-desc" data-lang-fr>
+          Suites E2E avec Playwright et Cypress. Page Object Model, fixtures, et tests paramétrés.
+          Intégration CI dès le premier jour — jamais de tests en local seulement.
+        </p>
+        <div class="card-tags">
+          <span>Playwright</span><span>Cypress</span><span>TypeScript</span><span>GitHub Actions</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3 class="card-title" data-lang-en>QA Strategy & Process</h3>
+        <h3 class="card-title" data-lang-fr>Stratégie QA & Processus</h3>
+        <p class="card-desc" data-lang-en>
+          Testing pyramids, quality gates, mentoring, and handoffs that stick. The goal is
+          adoption — clients own and maintain the suite after I leave.
+        </p>
+        <p class="card-desc" data-lang-fr>
+          Pyramides de tests, quality gates, mentoring, et transmissions qui durent. L'objectif :
+          que le client maintienne la suite après mon départ.
+        </p>
+        <div class="card-tags">
+          <span>Testing Pyramid</span><span>Quality Gates</span><span>Mentoring</span><span>Jira/Xray</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🔗</div>
+        <h3 class="card-title" data-lang-en>API & Integration Testing</h3>
+        <h3 class="card-title" data-lang-fr>Tests API & Intégration</h3>
+        <p class="card-desc" data-lang-en>
+          Contract testing, schema validation, and data-driven suites against REST and GraphQL APIs.
+          Catch integration failures before they reach the UI.
+        </p>
+        <p class="card-desc" data-lang-fr>
+          Tests de contrat, validation de schéma, et suites paramétrées sur des APIs REST et GraphQL.
+          Détecter les défaillances d'intégration avant qu'elles atteignent l'UI.
+        </p>
+        <div class="card-tags">
+          <span>REST</span><span>GraphQL</span><span>Contract Testing</span><span>Schema Validation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<style>
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.75rem;
+  }
+
+  .card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+  }
+
+  .card-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .card-tags span {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+  }
+
+  @media (max-width: 768px) {
+    .cards { grid-template-columns: 1fr; }
+  }
+</style>

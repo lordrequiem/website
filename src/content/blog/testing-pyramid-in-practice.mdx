@@ -1,0 +1,35 @@
+---
+title: "The Testing Pyramid Is Not a Recommendation"
+date: "2026-01-20"
+readTime: "8 min read"
+excerpt: "Most teams use the testing pyramid as a target ratio. That's not what it's for. It's a cost model — and your codebase might have a different shape."
+lang: "en"
+---
+
+The testing pyramid tells you that unit tests are cheap, integration tests are medium, and E2E tests are expensive. That's it. The pyramid is not telling you to have exactly 70% unit tests.
+
+## What "expensive" actually means
+
+An E2E test is expensive in three ways:
+
+1. **Time** — it runs a full browser. 5-10 seconds per test, not milliseconds.
+2. **Maintenance** — UI changes break E2E tests. Business logic changes rarely break unit tests.
+3. **Flakiness surface** — the more system components a test touches, the more places it can fail for non-deterministic reasons.
+
+## When to break the pyramid
+
+Some systems have almost no unit-testable logic. A form-heavy CMS, a checkout flow, a dashboard with complex state — the value is in the user interaction, not in a function's return value. For these, an E2E-heavy suite is the right shape.
+
+The question is not "am I following the pyramid?" The question is: **where is the risk?**
+
+For a payment flow: E2E tests, integration tests against the payment API, unit tests for the fee calculation logic. Heavy at the top, because that's where the money is.
+
+For a data transformation pipeline: mostly unit tests. The logic is pure functions. E2E tests would be testing whether the browser can display a number, which is not the risk.
+
+## The mistake I see most often
+
+Teams write E2E tests for business logic that belongs in unit tests. A 200-line Playwright test that verifies a discount calculation by filling a form, clicking through a checkout, and inspecting a line item.
+
+Write a unit test for the discount calculation. Write an E2E test for "can a user complete a checkout." Keep the concerns separate.
+
+The pyramid is a cost model. Use it to ask: "Am I paying the right price for the coverage I need?"

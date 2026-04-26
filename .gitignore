@@ -1,0 +1,21 @@
+# Build output
+dist/
+.output/
+
+# Dependencies
+node_modules/
+
+# Astro generated
+.astro/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# gstack / local tooling
+.gstack/
+
+# OS
+.DS_Store
+Thumbs.db

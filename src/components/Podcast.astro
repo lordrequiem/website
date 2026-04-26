@@ -1,0 +1,212 @@
+---
+import { podcast } from '../data/podcast';
+import { strings } from '../i18n/strings';
+const en = strings.en.podcast;
+const fr = strings.fr.podcast;
+---
+
+<section id="podcast">
+  <div class="container">
+    <h2 class="section-heading">
+      <span data-lang-en>{en.heading}</span>
+      <span data-lang-fr>{fr.heading}</span>
+    </h2>
+
+    <div class="podcast-grid">
+      <!-- Left: cover + platforms -->
+      <div class="podcast-meta">
+        <div class="cover-art">
+          <img
+            src={podcast.coverArt}
+            alt={podcast.name}
+            width="200"
+            height="200"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+          />
+          <div class="cover-placeholder" style="display:none">
+            <span>🎙️</span>
+            <span>{podcast.name}</span>
+          </div>
+        </div>
+
+        <h3 class="podcast-name">{podcast.name}</h3>
+        <p class="podcast-tagline">{podcast.tagline}</p>
+
+        <div class="platforms">
+          {podcast.platforms.map((p) => (
+            <a href={p.url} class="platform-badge" target="_blank" rel="noopener">
+              {p.name}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right: episodes -->
+      <div class="episodes">
+        {podcast.episodes.map((ep) => (
+          <div class="episode">
+            <span class="ep-number">#{ep.number}</span>
+            <div class="ep-info">
+              <p class="ep-title">{ep.title}</p>
+              <p class="ep-meta">{ep.guest} · {ep.duration}</p>
+            </div>
+            <a href={ep.url} class="listen-btn" target="_blank" rel="noopener">
+              <span data-lang-en>{en.listen}</span>
+              <span data-lang-fr>{fr.listen}</span>
+            </a>
+          </div>
+        ))}
+
+        <a href={podcast.primaryUrl} class="all-episodes" target="_blank" rel="noopener">
+          <span data-lang-en>{en.allEpisodes}</span>
+          <span data-lang-fr>{fr.allEpisodes}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<style>
+  .podcast-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 3rem;
+    margin-top: 2.5rem;
+    align-items: start;
+  }
+
+  .cover-art {
+    width: 200px;
+    height: 200px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+  }
+
+  .cover-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cover-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+
+  .cover-placeholder span:first-child {
+    font-size: 2.5rem;
+  }
+
+  .podcast-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+
+  .podcast-tagline {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .platforms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .platform-badge {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: border-color 0.15s;
+  }
+
+  .platform-badge:hover {
+    border-color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .episodes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .episode {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+  }
+
+  .ep-number {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    min-width: 2.5rem;
+  }
+
+  .ep-info {
+    flex: 1;
+  }
+
+  .ep-title {
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+  }
+
+  .ep-meta {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+  }
+
+  .listen-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--green);
+    font-family: var(--font);
+    font-size: 0.8rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: border-color 0.15s;
+  }
+
+  .listen-btn:hover {
+    border-color: var(--green);
+    text-decoration: none;
+  }
+
+  .all-episodes {
+    font-size: 0.85rem;
+    color: var(--blue);
+    margin-top: 0.5rem;
+    align-self: flex-start;
+  }
+
+  @media (max-width: 768px) {
+    .podcast-grid { grid-template-columns: 1fr; }
+  }
+</style>
