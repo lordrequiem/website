@@ -15,52 +15,48 @@ const fr = strings.fr.philosophy;
       <div class="block overrated">
         <span class="label">OVERRATED</span>
         <p data-lang-en>
-          Codeless and low-code test tools. They feel fast until the codebase grows. You end up
-          with 200 unreadable flows you can't refactor, and a team that can't debug them.
+          AI-generated tests without QA strategy. They look impressive until the suite grows. 
+          You end up with shallow scenarios, weak assertions, and tests nobody trusts because nobody challenged the risks behind them.
         </p>
         <p data-lang-fr>
-          Les outils de test sans code et low-code. Ça paraît rapide jusqu'à ce que le codebase
-          grandisse. Résultat : 200 flux illisibles impossibles à refactorer, et une équipe qui
-          ne sait pas les debugger.
+          Les tests générés par IA sans stratégie QA. Ça paraît impressionnant jusqu’à ce que la suite grossisse. 
+          On se retrouve avec des scénarios superficiels, des assertions faibles et des tests auxquels personne ne fait confiance parce que personne n’a vraiment challengé les risques derrière.
         </p>
       </div>
 
       <div class="block underrated">
         <span class="label">UNDERRATED</span>
         <p data-lang-en>
-          Observability inside tests. Good logs, traces, screenshots, video artifacts, and network
-          captures. The difference between a 10-minute debug and a 2-hour one. Most teams skip this.
+          Shift Left done seriously. When developers, QA, and product discuss risks early, bugs disappear before tickets exist. 
+          That is harder to measure than defects, but far more valuable.
         </p>
         <p data-lang-fr>
-          L'observabilité dans les tests. Des logs clairs, des traces, des screenshots, des vidéos,
-          des captures réseau. La différence entre 10 minutes de debug et 2 heures. La plupart des
-          équipes ignorent ça.
+          Le Shift Left fait sérieusement. Quand les développeurs, la QA et le produit discutent des risques tôt, des bugs disparaissent avant même d’exister sous forme de tickets. 
+          C’est plus difficile à mesurer que des défauts, mais bien plus précieux.
         </p>
       </div>
 
       <div class="block never">
         <span class="label">NEVER</span>
         <p data-lang-en>
-          Skip or <code>.skip()</code> a flaky test. Retrying a flaky test hides a real signal,
-          teaches the team to distrust the suite, and eventually lets a real bug through disguised
-          as noise.
+          Automate everything just because you can. A huge flaky suite is not quality. 
+          It is noise, maintenance, and false confidence disguised as coverage.
         </p>
         <p data-lang-fr>
-          Passer ou <code>.skip()</code> un test instable. Relancer un test qui flake masque un
-          vrai signal, apprend à l'équipe à ne pas faire confiance à la suite, et finit par laisser
-          passer un vrai bug déguisé en bruit.
+          Tout automatiser juste parce qu’on peut le faire. Une énorme suite flaky, ce n’est pas de la qualité. 
+          C’est du bruit, de la maintenance et une fausse confiance déguisée en couverture.
         </p>
       </div>
 
       <div class="block always">
         <span class="label">ALWAYS</span>
         <p data-lang-en>
-          Every test runs in CI from day one. No local-only tests. No "I'll add it to the pipeline
-          later." If it doesn't run in CI, it doesn't exist.
+          Run tests in CI from day one. Local-only automation does not protect delivery. 
+          If a test matters, it must give feedback to the whole team, not only to the person who wrote it.
         </p>
         <p data-lang-fr>
-          Chaque test tourne en CI dès le premier jour. Pas de tests en local seulement. Pas de
-          "je l'ajouterai au pipeline plus tard." Si ça ne tourne pas en CI, ça n'existe pas.
+          Lancer les tests en CI dès le premier jour. Une automatisation uniquement locale ne protège pas le delivery. 
+          Si un test compte vraiment, il doit donner du feedback à toute l’équipe, pas seulement à la personne qui l’a écrit.
         </p>
       </div>
     </div>
