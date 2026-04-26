@@ -10,6 +10,7 @@ const blog = defineCollection({
     readTime: z.string(),
     excerpt: z.string(),
     lang: z.enum(['en', 'fr']).default('en'),
+    url: z.string().url().optional(),
   }),
 });
 
