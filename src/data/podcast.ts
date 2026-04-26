@@ -4,9 +4,9 @@ export const podcast = {
   coverArt: '/website/podcast-cover.jpg',
   primaryUrl: 'https://...',
   platforms: [
-    { name: 'Spotify', url: 'https://...' },
-    { name: 'Apple Podcasts', url: 'https://...' },
-    { name: 'YouTube', url: 'https://...' },
+    { name: 'Spotify', url: 'https://open.spotify.com/show/2RXVnPct46dACBJNkEoIQe?si=7f63470c19e84415' },
+    { name: 'Apple Podcasts', url: 'https://podcasts.apple.com/fr/podcast/qg-qualit%C3%A9/id1759317786' },
+    { name: 'YouTube', url: 'https://www.youtube.com/@SSID_Testing' },
   ],
   episodes: [
     {
