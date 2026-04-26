@@ -1,0 +1,45 @@
+---
+title: "J'ai arrêté de brûler mes tokens avec le MCP. La Playwright CLI a changé la donne."
+date: "2026-04-05"
+readTime: "3 min de lecture"
+excerpt: "Moins visuelle que le MCP, mais plus légère, plus directe et beaucoup plus économe en tokens. Combinée à Claude CLI, elle transforme le langage naturel en scénarios Playwright exécutables, directement depuis le terminal."
+lang: "fr"
+---
+
+I've seen this pattern three times: a consultant delivers a clean, well-structured test suite. Three months later it's unmaintained, half the tests are skipped, and the team says "the automation doesn't work."
+
+The problem was never the code. The problem was the handoff.
+
+## What a failed handoff looks like
+
+- A `README.md` that explains how to install, not how to think
+- No runbook for common failures ("test fails on CI but passes locally")
+- No guidance on what to do when a feature changes the UI
+- No live walkthrough — the consultant left before anyone ran the suite themselves
+
+## The format that works
+
+A successful handoff has three components:
+
+**1. The runbook** — a decision tree for every failure mode:
+```
+Test fails with "element not found":
+  → Is the element missing, or has the selector changed?
+  → If selector: update the locator using getByRole/getByLabel
+  → If element: check if feature was removed — update the test
+  → If intermittent: add a screenshot + network log, escalate
+```
+
+**2. The live demo** — run the full suite together, in their environment:
+- Watch a test fail (break one intentionally)
+- Diagnose it together
+- Fix it together
+- Run it in CI
+
+By the end they've debugged a test once. That removes most of the fear.
+
+**3. The first maintenance PR** — before I leave, they write it. I review it. Not the other way.
+
+## The metric that matters
+
+Six months after handoff: is the team still running and maintaining the suite? That's the only metric that counts. Everything else is implementation detail.
