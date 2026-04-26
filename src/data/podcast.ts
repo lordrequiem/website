@@ -1,6 +1,6 @@
 export const podcast = {
-  name: '[ Podcast Name ]',
-  tagline: '[ One-line description ]',
+  name: 'QG Qualité',
+  tagline: 'The voice of QA that matters',
   coverArt: '/website/podcast-cover.jpg',
   primaryUrl: 'https://...',
   platforms: [
