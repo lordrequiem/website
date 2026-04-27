@@ -22,8 +22,10 @@ const cases = defineCollection({
     year: z.number(),
     category: z.string(),
     stack: z.array(z.string()),
-    metrics: z.array(z.object({ value: z.string(), label: z.string() })),
+    metrics: z.array(z.object({ value: z.string(), label: z.string(), labelFr: z.string().optional() })),
     excerpt: z.string(),
+    titleFr: z.string().optional(),
+    excerptFr: z.string().optional(),
   }),
 });
 
