@@ -7,6 +7,8 @@ export const podcast = {
     { name: 'Spotify', url: 'https://open.spotify.com/show/2RXVnPct46dACBJNkEoIQe?si=7f63470c19e84415' },
     { name: 'Apple Podcasts', url: 'https://podcasts.apple.com/fr/podcast/qg-qualit%C3%A9/id1759317786' },
     { name: 'YouTube', url: 'https://www.youtube.com/@SSID_Testing' },
+    { name: 'Deezer', url: 'https://www.deezer.com/fr/show/1001657181' },
+    { name: 'Amazon Podcasts', url: 'https://music.amazon.fr/podcasts/d202faec-5056-4e0d-8ed7-3d37039e39f2/qg-qualit%C3%A9' },
   ],
   episodes: [
     {
