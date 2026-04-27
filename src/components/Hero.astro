@@ -29,8 +29,14 @@ const fr = strings.fr.hero;
         <span data-lang-fr>{fr.role}</span>
       </p>
       <h1 class="headline">
-        <span data-lang-en>{en.headline}</span>
-        <span data-lang-fr>{fr.headline}</span>
+        <span data-lang-en>
+          <span class="headline-line">{en.headline1}</span>
+          <span class="headline-line">{en.headline2}</span>
+        </span>
+        <span data-lang-fr class="block">
+          <span class="headline-line">{fr.headline1}</span>
+          <span class="headline-line">{fr.headline2}</span>
+        </span>
       </h1>
       <p class="sub-copy">
         <span data-lang-en>{en.subCopy}</span>
@@ -173,6 +179,10 @@ const fr = strings.fr.hero;
     color: var(--text);
     line-height: 1.2;
     margin-bottom: 1rem;
+  }
+
+  .headline-line {
+    display: block;
   }
 
   .sub-copy {
