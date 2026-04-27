@@ -24,8 +24,12 @@ cases.sort((a, b) => b.data.year - a.data.year);
               <span class="case-client">{c.data.client}</span>
               <span class="case-year">{c.data.year}</span>
             </div>
-            <h3 class="case-title">{c.data.title}</h3>
-            <p class="case-excerpt">{c.data.excerpt}</p>
+            <h3 class="case-title">
+              <span data-lang-en>{c.data.title}</span>
+              <span data-lang-fr>{c.data.titleFr ?? c.data.title}</span>
+            </h3>
+            <p class="case-excerpt" data-lang-en>{c.data.excerpt}</p>
+            <p class="case-excerpt block" data-lang-fr>{c.data.excerptFr ?? c.data.excerpt}</p>
             <div class="case-tags">
               {c.data.stack.map((s) => (
                 <span class="tag">{s}</span>
@@ -36,7 +40,8 @@ cases.sort((a, b) => b.data.year - a.data.year);
             {c.data.metrics.map((m) => (
               <div class="metric">
                 <span class="metric-value">{m.value}</span>
-                <span class="metric-label">{m.label}</span>
+                <span class="metric-label" data-lang-en>{m.label}</span>
+                <span class="metric-label" data-lang-fr>{m.labelFr ?? m.label}</span>
               </div>
             ))}
           </div>
