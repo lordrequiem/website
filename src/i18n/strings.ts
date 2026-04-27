@@ -10,8 +10,8 @@ export const strings = {
     },
     hero: {
       role: '// Lead Quality Engineer',
-      headline: "I make test suites that don't lie.",
-      subCopy: 'Playwright · Cypress · TypeScript · GitHub Actions',
+      headline: "Tests pass. Bugs ship.",
+      subCopy: 'Playwright · MCP · CLI · AI agents · TypeScript',
       status: 'Available for work',
       cta1: 'See my work',
       cta2: 'Get in touch',
@@ -66,8 +66,8 @@ export const strings = {
     },
     hero: {
       role: '// Lead Quality Engineer',
-      headline: "Je construis des suites de tests qui ne mentent pas.",
-      subCopy: 'Playwright · Cypress · TypeScript · GitHub Actions',
+      headline: "Vos tests passent. Vos bugs aussi.",
+      subCopy: 'Playwright · MCP · CLI · AI agents · TypeScript',
       status: 'Disponible',
       cta1: 'Voir mes projets',
       cta2: 'Me contacter',
