@@ -30,7 +30,14 @@ const fr = strings.fr.podcast;
         </div>
 
         <h3 class="podcast-name">{podcast.name}</h3>
-        <p class="podcast-tagline">{podcast.tagline}</p>
+        <p class="podcast-tagline">
+          <span data-lang-en>{en.tagline}</span>
+          <span data-lang-fr>{fr.tagline}</span>
+        </p>
+        <p class="podcast-host">
+          <span data-lang-en>{en.hostedBy}</span>
+          <span data-lang-fr>{fr.hostedBy}</span>
+        </p>
 
         <div class="platforms">
           {podcast.platforms.map((p) => (
@@ -118,6 +125,12 @@ const fr = strings.fr.podcast;
   .podcast-tagline {
     font-size: 0.8rem;
     color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+  }
+
+  .podcast-host {
+    font-size: 0.75rem;
+    color: var(--text-muted);
     margin-bottom: 1rem;
   }
 

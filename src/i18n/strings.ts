@@ -31,6 +31,8 @@ export const strings = {
     },
     podcast: {
       heading: 'Podcast',
+      tagline: 'The voice of QA that matters',
+      hostedBy: 'Hosted by Romuald Lenormand',
       listen: '▶ Listen',
       allEpisodes: '→ Access the episodes',
     },
@@ -88,6 +90,8 @@ export const strings = {
     },
     podcast: {
       heading: 'Podcast',
+      tagline: 'La voix de la QA qui compte.',
+      hostedBy: 'Présentée par Romuald Lenormand',
       listen: '▶ Écouter',
       allEpisodes: '→ Accéder aux épisodes',
     },
