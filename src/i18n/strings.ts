@@ -27,7 +27,7 @@ export const strings = {
       heading: 'Real problems. Measurable outcomes.',
     },
     philosophy: {
-      heading: 'Opinions, not bullet points.',
+      heading: 'Opinions over bullet points.',
     },
     podcast: {
       heading: 'Podcast',
@@ -84,7 +84,7 @@ export const strings = {
       heading: 'Problèmes réels. Résultats mesurables.',
     },
     philosophy: {
-      heading: 'Opinions, pas des listes.',
+      heading: 'Des idées fortes plutôt que des listes à puces.',
     },
     podcast: {
       heading: 'Podcast',

@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Skill(office-hours)"
+      "Skill(office-hours)",
+      "Bash(grep -E \"\\\\.\\(css|scss|ts|tsx|js|jsx|astro\\)$\")",
+      "Bash(rtk ls *)",
+      "Bash(rtk git *)",
+      "Bash(rtk grep *)"
     ]
   }
 }
