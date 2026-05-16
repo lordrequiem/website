@@ -32,7 +32,7 @@ export const strings = {
     podcast: {
       heading: 'Podcast',
       listen: '▶ Listen',
-      allEpisodes: '→ All episodes',
+      allEpisodes: '→ Access the episodes',
     },
     blog: {
       heading: 'Writing',
@@ -89,7 +89,7 @@ export const strings = {
     podcast: {
       heading: 'Podcast',
       listen: '▶ Écouter',
-      allEpisodes: '→ Tous les épisodes',
+      allEpisodes: '→ Accéder aux épisodes',
     },
     blog: {
       heading: 'Articles',
