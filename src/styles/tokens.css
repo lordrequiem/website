@@ -14,7 +14,24 @@
   --font: 'JetBrains Mono', 'Courier New', Courier, monospace;
 }
 
-/* Light mode */
+/* System preference: light (no-JS fallback) */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #ffffff;
+    --surface: #f6f8fa;
+    --border: #d0d7de;
+    --text: #1f2328;
+    --text-secondary: #656d76;
+    --text-muted: #9198a1;
+    --blue: #0969da;
+    --green: #1a7f37;
+    --green-bright: #1a7f37;
+    --red: #cf222e;
+    --yellow: #9a6700;
+  }
+}
+
+/* Explicit light override */
 html.light {
   --bg: #ffffff;
   --surface: #f6f8fa;
@@ -27,6 +44,21 @@ html.light {
   --green-bright: #1a7f37;
   --red: #cf222e;
   --yellow: #9a6700;
+}
+
+/* Explicit dark override (user toggled to dark on a light-preference system) */
+html.dark {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --border: #30363d;
+  --text: #f0f6fc;
+  --text-secondary: #8b949e;
+  --text-muted: #484f58;
+  --blue: #58a6ff;
+  --green: #3fb950;
+  --green-bright: #7ee787;
+  --red: #f85149;
+  --yellow: #d29922;
 }
 
 *,

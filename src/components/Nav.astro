@@ -36,12 +36,19 @@ const fr = strings.fr.nav;
   const langBtn = document.getElementById('lang-toggle');
 
   themeBtn?.addEventListener('click', () => {
-    const isLight = document.documentElement.classList.contains('light');
+    const html = document.documentElement;
+    const isLight =
+      html.classList.contains('light') ||
+      (!html.classList.contains('dark') &&
+        window.matchMedia('(prefers-color-scheme: light)').matches);
+
     if (isLight) {
-      document.documentElement.classList.remove('light');
+      html.classList.remove('light');
+      html.classList.add('dark');
       localStorage.setItem('theme', 'dark');
     } else {
-      document.documentElement.classList.add('light');
+      html.classList.remove('dark');
+      html.classList.add('light');
       localStorage.setItem('theme', 'light');
     }
   });
@@ -127,10 +134,22 @@ const fr = strings.fr.nav;
     border-color: var(--text-muted);
   }
 
-  /* Show moon in dark mode, sun in light mode */
+  /* Default: dark → moon */
   .icon-sun { display: none; }
+
+  /* System preference: light → sun */
+  @media (prefers-color-scheme: light) {
+    .icon-moon { display: none; }
+    .icon-sun { display: inline; }
+  }
+
+  /* Explicit light class → sun */
   html.light .icon-moon { display: none; }
   html.light .icon-sun { display: inline; }
+
+  /* Explicit dark class → moon (overrides system light) */
+  html.dark .icon-moon { display: inline; }
+  html.dark .icon-sun { display: none; }
 
   @media (max-width: 768px) {
     .nav-links { display: none; }
