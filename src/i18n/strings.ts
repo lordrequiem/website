@@ -91,7 +91,7 @@ export const strings = {
     podcast: {
       heading: 'Podcast',
       tagline: 'La voix de la QA qui compte.',
-      hostedBy: 'Présentée par Romuald Lenormand',
+      hostedBy: 'Présenté par Romuald Lenormand',
       listen: '▶ Écouter',
       allEpisodes: '→ Accéder aux épisodes',
     },
